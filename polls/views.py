@@ -1,20 +1,15 @@
 from django.shortcuts import render, redirect  
 from polls.forms import ExerciseForm  
 from polls.models import Exercise  
-
+import json
+from django.http import HttpRequest
 
 def exc(request):  
     if request.method == "POST":  
         form = ExerciseForm(request.POST)  
-        if form.is_valid():  
-            try:  
-                form.save()  
-                return redirect('/show')  
-            except:  
-                pass  
-    else:  
-        form = ExerciseForm()  
-    return render(request,'index.html',{'form':form})  
+        received_json_data=json.loads(request.POST['data'])
+        return HttpRequest.body
+        
 def show(request):  
     exercise = Exercise.objects.all()  
     return render(request,"show.html",{'exercise':exercise})  

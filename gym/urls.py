@@ -12,7 +12,7 @@ from django.urls import path
 from polls import views  
 urlpatterns = [  
     path('admin/', admin.site.urls),  
-    path('exc', views.exc),  
+    path('exc', views.exc,name='exc'),  
     path('show',views.show),  
     path('edit/<int:id>', views.edit),  
     path('update/<int:id>', views.update),  
