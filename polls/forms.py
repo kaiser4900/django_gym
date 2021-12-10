@@ -1,7 +1,12 @@
-from django import forms  
-
-from polls.models import Exercise  
-class ExerciseForm(forms.ModelForm):  
-    class Meta:  
-        model = Exercise  
-        fields = "__all__"  
+from django import forms
+from .models import ExerciseModel
+ 
+ 
+class ExerciseForm(forms.ModelForm):
+ 
+    class Meta:
+        model = ExerciseModel
+ 
+        fields = [
+            "title",
+        ]
